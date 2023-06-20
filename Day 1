@@ -42,3 +42,25 @@ Insert Into EmployeeSalary VALUES
 
 SELECT STATEMENT---
 Top, Distinct , Count , Min , Max, Avg, As 
+
+Where statement 
+= , <> , < , > , And , Or , Like , Null , NotNull , In
+
+Group by, Order by
+Code--
+SELECT Gender, COUNT(Gender) AS CountGender
+FROM EmployeeDemographics 
+GROUP BY Gender
+
+SELECT Gender,Age,COUNT (Gender) AS CountGender
+FROM EmployeeDemographics
+GROUP BY Gender, Age
+-- In this age and gender are the real columns and the count is like
+the derived one so no need to write it in the group by section
+
+SELECT Gender,COUNT (Gender) AS CountGender
+FROM EmployeeDemographics
+WHERE Age>=30
+GROUP BY Gender
+ORDER BY CountGender DESC
+ASC is the default 
