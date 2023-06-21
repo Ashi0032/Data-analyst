@@ -64,3 +64,18 @@ WHERE Age>=30
 GROUP BY Gender
 ORDER BY CountGender DESC
 ASC is the default 
+
+Day 2---
+Joint functions
+Inner Join -- only common part
+left OUTER Join first and the common
+Right OUTER Join second and the common
+FULL Outer Join Both
+
+SELECT *
+FROM SQL.dbo.EmployeeDemographics
+Inner join SQL.dbo.EmployeeSalary
+    ON EmployeeDemographic.EmployeeId = EmployeeSalary.EmployeeId
+
+if we have select only few columns then eveything is normal except the employee id we 
+have to specify which employeeId by EmployeeDemographocs.EmployeeID ya other
