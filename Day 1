@@ -79,3 +79,32 @@ Inner join SQL.dbo.EmployeeSalary
 
 if we have select only few columns then eveything is normal except the employee id we 
 have to specify which employeeId by EmployeeDemographocs.EmployeeID ya other
+
+Day 3----
+
+Firstly we will update the values of the table 1 and 
+add a new table in the sql 
+
+Table 1 Insert:
+Insert into EmployeeDemographics VALUES
+(1011, 'Ryan', 'Howard', 26, 'Male'),
+(NULL, 'Holly', 'Flax', NULL, NULL),
+(1013, 'Darryl', 'Philbin', NULL, 'Male')
+
+Table 3 Query:
+Create Table WareHouseEmployeeDemographics 
+(EmployeeID int, 
+FirstName varchar(50), 
+LastName varchar(50), 
+Age int, 
+Gender varchar(50)
+)
+
+Table 3 Insert:
+Insert into WareHouseEmployeeDemographics VALUES
+(1013, 'Darryl', 'Philbin', NULL, 'Male'),
+(1050, 'Roy', 'Anderson', 31, 'Male'),
+(1051, 'Hidetoshi', 'Hasagawa', 40, 'Male'),
+(1052, 'Val', 'Johnson', 31, 'Female)
+
+Union and AllUnion Function--
