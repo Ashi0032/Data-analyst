@@ -108,3 +108,37 @@ Insert into WareHouseEmployeeDemographics VALUES
 (1052, 'Val', 'Johnson', 31, 'Female)
 
 Union and AllUnion Function--
+SELECT *
+FROM EmployeeDemographics
+UNION 
+SELECT *
+FROM WareHouseEmployeeDemographics
+
+In inner join type function we always have to specific to join the functions by common point
+where as in the union function it just join the tables without the common point
+
+Case statement--
+
+Select FirstName,LastName,Age,
+CASE 
+    WHEN Age>30 THEN 'OLD'
+	ELSE 'YOUNG'
+END
+FROM EmployeeDemographics
+WHERE Age is NOT NULL
+ORDER BY Age
+
+CASE statement is in order of the proirity in which they are written
+
+SELECT FirstName,LastName,JobTitle,Salary,
+CASE
+    WHEN JobTitle ='Salesman' THEN Salary + (Salary*0.05)
+	WHEN JobTitle =' HR' THEN Salary +(Salary*10)
+	Else Salary +(Salary*2)
+END
+FROM EmployeeDemographics
+INNER JOIN EmployeeSalary
+ON EmployeeDemographics.EmployeeID=EmployeeSalary.EmployeeID
+
+
+
