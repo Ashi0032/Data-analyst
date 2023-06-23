@@ -138,7 +138,8 @@ CASE
 END
 FROM EmployeeDemographics
 INNER JOIN EmployeeSalary
-ON EmployeeDemographics.EmployeeID=EmployeeSalary.EmployeeID
+   ON
+      EmployeeDemographics.EmployeeID=EmployeeSalary.EmployeeID
 
 
 
