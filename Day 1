@@ -141,5 +141,61 @@ INNER JOIN EmployeeSalary
    ON
       EmployeeDemographics.EmployeeID=EmployeeSalary.EmployeeID
 
+HAVE Statement---
+It is similar to the where statement and is used for the fucntion like count avg 
+that are not givem in the table but are calculated in the table
+it is to be used after the order (mostly) afte rit have been calculated
+
+
+SELECT JobTitle,AVG(Salary)
+FROM EmployeeDemographics
+JOIN EmployeeSalary
+ON EmployeeDemographics.EmployeeID=EmployeeSalary.EmployeeID
+GROUP BY JobTitle
+HAVING AVG(Salary)>45000
+ORDER BY AVG(Salary)
+
+Update statement--
+
+SELECT *
+FROM EmployeeDemographics
+
+UPDATE EmployeeDemographics
+SET EmployeeID=1012
+WHERE FirstName='Holly'
+
+DELETE Statement -- 
+be careful once data deleted can't be retrieved 
+SELECT *
+FROM EmployeeDemographics
+
+DELETE EmployeeDemographics
+WHERE EmployeeID=1007
+
+
+ALIASING-- 
+Different names given to the tables and the columns so that it it easy to access them and call them 
+especially when the data is more
+
+SELECT Demo.EmployeeID,Demo.FirstName,Demo.LastName,Sal.JobTitle,Ware.Age
+FROM EmployeeDemographics AS Demo
+LEFT JOIN EmployeeSalary AS Sal
+ON Demo.EmployeeID=Sal.EmployeeID
+LEFT JOIN WareHouseEmployeeDemographics AS Ware
+ON Demo.EmployeeID=Ware.EmployeeID
+
+PARTITION BY ---
+help to get the count wile maintaing the other columns in the tables whereas the griup by no let the count 
+or we have to get rid of the other columns
+
+SELECT FirstName,LastName,Gender,Salary
+,COUNT(Gender) OVER (PARTITION BY Gender) AS TotalGender
+FROM EmployeeDemographics dem
+JOIN EmployeeSalary sal
+ON dem.EmployeeID=sal.EmployeeID
+
+
+
+
 
 
