@@ -194,6 +194,10 @@ FROM EmployeeDemographics dem
 JOIN EmployeeSalary sal
     ON dem.EmployeeID=sal.EmployeeID
 
+CTE statement---
+WITH CTE_Employee AS (
+
+
 
 
 
