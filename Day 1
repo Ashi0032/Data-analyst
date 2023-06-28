@@ -195,7 +195,42 @@ JOIN EmployeeSalary sal
     ON dem.EmployeeID=sal.EmployeeID
 
 CTE statement---
-WITH CTE_Employee AS (
+
+ WITH CTE_Employee as
+ (SELECT FirstName , LastName ,gender ,Salary,
+ COUNT(gender) OVER (PARTITION by Gender) AS TotalGender
+ ,AVG(Salary) OVER (PARTITION BY Gender) AS AvgSalary
+ FROM EmployeeDemographics as emp
+ join EmployeeSalary as sal
+     on emp.EmployeeID=sal.EmployeeID
+WHERE Salary>'45000'
+)
+SELECT*
+FROM CTE_Employee
+
+It is a subquery and as it is created everytime and is not stored anywhere so we have to write it everytime
+also the selct statemkent have to be written everytime next to the CTE otherwise it will not work
+
+TEMP TABLES---
+CREATE TABLE #temp_Employee
+(EmployeeID int,
+EmployeeName varchar(100),
+Salary int)
+
+INSERT into #temp_Employee VALAUES (
+'1001', 'HR','10000')
+
+INSERT INTO #temp_Employee
+SELECT*
+FROM EmployeeSalary
+
+creating a new tmp table
+CREATE TABLE #Temp_Employee2(
+JobTitle varchar(50),
+EmployeesPerJob int,
+AvgAge int,
+AvgSalary int)
+
 
 
 
