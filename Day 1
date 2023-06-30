@@ -196,7 +196,7 @@ JOIN EmployeeSalary sal
 
 CTE statement---
 
- WITH CTE_Employee as
+ WITH CTE_Employee(FirstName , LastName ,gender ,Salary,Count,AVG) as
  (SELECT FirstName , LastName ,gender ,Salary,
  COUNT(gender) OVER (PARTITION by Gender) AS TotalGender
  ,AVG(Salary) OVER (PARTITION BY Gender) AS AvgSalary
@@ -207,6 +207,8 @@ WHERE Salary>'45000'
 )
 SELECT*
 FROM CTE_Employee
+
+CTE wale table may order by nhi hona chahiye
 
 It is a subquery and as it is created everytime and is not stored anywhere so we have to write it everytime
 also the selct statemkent have to be written everytime next to the CTE otherwise it will not work
@@ -236,9 +238,9 @@ SELECT JobTitle , COUNT(JobTitle)
  FROM EmployeeDemographics as emp
  join EmployeeSalary as sal
      on emp.EmployeeID=sal.EmployeeID
-WHERE Salary>'45000'
+WHERE Salary>'45000
 
-
+--temp table may order may nhi hona chahiye
 
 
 CREATE TABLE EmployeeErrors (
